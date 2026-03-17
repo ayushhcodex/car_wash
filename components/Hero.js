@@ -5,8 +5,8 @@ import { trackEvent } from './Analytics';
 import styles from './Hero.module.css';
 
 export default function Hero() {
-  const phone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '+919876543210';
-  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919876543210';
+  const phone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '+919672626676';
+  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919672626676';
 
   const handleCall = () => {
     trackEvent('Contact', { method: 'phone_call', location: 'hero' });

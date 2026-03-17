@@ -5,7 +5,7 @@ import { trackEvent } from './Analytics';
 import styles from './WhatsAppFAB.module.css';
 
 export default function WhatsAppFAB() {
-  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919876543210';
+  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919672626676';
 
   const handleClick = () => {
     trackEvent('Contact', { method: 'whatsapp', location: 'fab' });

@@ -17,7 +17,7 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const phone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '+919876543210';
+  const phone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '+919672626676';
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);

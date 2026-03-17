@@ -17,8 +17,8 @@ const SERVICES = [
 ];
 
 export default function Footer() {
-  const phone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '+919876543210';
-  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919876543210';
+  const phone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '+919672626676';
+  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919672626676';
   const year = new Date().getFullYear();
 
   return (
