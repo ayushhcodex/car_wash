@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Send, Phone, MessageCircle, CheckCircle, AlertCircle, Loader } from 'lucide-react';
 import { trackEvent } from './Analytics';
+import BookingCalendar from './BookingCalendar';
 import styles from './ContactForm.module.css';
 
 const CAR_TYPES = ['Hatchback', 'Sedan', 'SUV', 'MUV'];
@@ -22,11 +23,14 @@ export default function ContactForm() {
     carType: '',
     area: '',
     serviceInterest: '',
+    date: '',
+    time: '',
     consent: false,
     website: '', // honeypot
   });
   const [status, setStatus] = useState('idle'); // idle | loading | success | error
   const [errorMsg, setErrorMsg] = useState('');
+  const [calendarError, setCalendarError] = useState(false);
   const [utmParams, setUtmParams] = useState({});
   const sectionRef = useRef(null);
   const phone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '+919672626676';
@@ -69,6 +73,17 @@ export default function ContactForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validate calendar selection
+    if (!formData.date || !formData.time) {
+      setCalendarError(true);
+      // Scroll to calendar
+      const calendarEl = document.querySelector(`.${styles.consent}`); // simple hack to scroll slightly above consent
+      if (calendarEl) calendarEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    
+    setCalendarError(false);
     setStatus('loading');
     setErrorMsg('');
 
@@ -91,6 +106,8 @@ export default function ContactForm() {
           service: formData.serviceInterest,
           area: formData.area,
           car_type: formData.carType,
+          booking_date: formData.date,
+          booking_time: formData.time,
         });
         setFormData({
           name: '',
@@ -98,6 +115,8 @@ export default function ContactForm() {
           carType: '',
           area: '',
           serviceInterest: '',
+          date: '',
+          time: '',
           consent: false,
           website: '',
         });
@@ -119,7 +138,7 @@ export default function ContactForm() {
             <CheckCircle size={56} className={styles.successIcon} />
             <h3 className={styles.successTitle}>Thank You!</h3>
             <p className={styles.successText}>
-              We've received your request. Our team will call you within <strong>30 minutes</strong> during business hours.
+              We&apos;ve received your request. Our team will call you within <strong>30 minutes</strong> during business hours.
             </p>
             <div className={styles.successActions}>
               <a
@@ -155,7 +174,7 @@ export default function ContactForm() {
           Get a <span className="accent-text">Free Quote</span>
         </h2>
         <p className="section-subtitle fade-in">
-          Fill in your details and we'll call you within 30 minutes with a personalized quote. No spam, no pressure.
+          Fill in your details and we&apos;ll call you within 30 minutes with a personalized quote. No spam, no pressure.
         </p>
 
         <div className={styles.wrapper}>
@@ -267,6 +286,14 @@ export default function ContactForm() {
                 ))}
               </select>
             </div>
+
+            <BookingCalendar 
+              selectedDate={formData.date}
+              onDateChange={(date) => setFormData(prev => ({ ...prev, date }))}
+              selectedTime={formData.time}
+              onTimeChange={(time) => setFormData(prev => ({ ...prev, time }))}
+              error={calendarError}
+            />
 
             <div className={styles.consent}>
               <input

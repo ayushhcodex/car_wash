@@ -2,51 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Check, Crown, Zap } from 'lucide-react';
+import { PLANS, CAR_TYPES } from '../lib/data';
 import styles from './Pricing.module.css';
-
-const PLANS = {
-  onetime: [
-    {
-      name: 'Shampoo Wash',
-      prices: { hatchback: 299, sedan: 399, suv: 499 },
-      features: ['Exterior shampoo wash', 'Tyre & rim cleaning', 'Window cleaning', 'Dashboard wipe'],
-    },
-    {
-      name: 'Foam Wash',
-      prices: { hatchback: 499, sedan: 599, suv: 749 },
-      features: ['Full foam treatment', 'Interior vacuum', 'Dashboard polish', 'Tyre dressing', 'Air freshener'],
-      popular: true,
-    },
-    {
-      name: 'Hydrophobic Coating',
-      prices: { hatchback: 999, sedan: 1299, suv: 1599 },
-      features: ['Full foam wash', 'Clay bar treatment', 'Hydrophobic coating', 'Interior deep clean', 'Engine bay wipe'],
-    },
-  ],
-  monthly: [
-    {
-      name: 'Shampoo Plan',
-      prices: { hatchback: 999, sedan: 1299, suv: 1599 },
-      features: ['4 shampoo washes/month', 'Weekly scheduled visits', 'Tyre & rim every visit', 'Priority booking'],
-      savings: '20%',
-    },
-    {
-      name: 'Foam Plan',
-      prices: { hatchback: 1699, sedan: 1999, suv: 2499 },
-      features: ['4 foam washes/month', 'Weekly scheduled visits', 'Interior vacuum every visit', 'Dashboard polish', 'Priority booking'],
-      popular: true,
-      savings: '15%',
-    },
-    {
-      name: 'Premium Plan',
-      prices: { hatchback: 2999, sedan: 3499, suv: 4299 },
-      features: ['4 foam washes/month', '1 hydrophobic coating/month', 'Weekly scheduled visits', 'Interior deep clean', 'Dedicated technician'],
-      savings: '25%',
-    },
-  ],
-};
-
-const CAR_TYPES = ['hatchback', 'sedan', 'suv'];
 
 export default function Pricing() {
   const [tab, setTab] = useState('monthly');
@@ -77,7 +34,7 @@ export default function Pricing() {
           Simple, <span className="accent-text">Transparent Pricing</span>
         </h2>
         <p className="section-subtitle fade-in">
-          No hidden charges. Pick your plan, choose your car type, and we'll be at your doorstep.
+          No hidden charges. Pick your plan, choose your car type, and we&apos;ll be at your doorstep.
         </p>
 
         {/* Toggle */}

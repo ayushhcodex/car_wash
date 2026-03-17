@@ -3,16 +3,8 @@
 import { useState, useEffect } from 'react';
 import { Phone, Menu, X, Droplets } from 'lucide-react';
 import { trackEvent } from './Analytics';
+import { NAV_LINKS } from '../lib/data';
 import styles from './Navbar.module.css';
-
-const NAV_LINKS = [
-  { label: 'Services', href: '#services' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'Plans', href: '#plans' },
-  { label: 'Why Us', href: '#why-us' },
-  { label: 'Reviews', href: '#testimonials' },
-  { label: 'Contact', href: '#contact' },
-];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

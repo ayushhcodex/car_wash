@@ -2,45 +2,9 @@
 
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { Sparkles, Waves, Shield, Clock, CheckCircle } from 'lucide-react';
+import { Clock, CheckCircle } from 'lucide-react';
+import { SERVICES } from '../lib/data';
 import styles from './Services.module.css';
-
-const SERVICES = [
-  {
-    id: 'shampoo',
-    icon: Sparkles,
-    name: 'Shampoo Wash',
-    tagline: 'Everyday Clean',
-    description: 'Complete exterior shampoo wash that removes dust, grime, and light stains. Perfect for regular maintenance.',
-    includes: ['Exterior shampoo wash', 'Tyre & rim cleaning', 'Window cleaning', 'Dashboard wipe'],
-    duration: '30–40 min',
-    startingPrice: '₹299',
-    image: '/images/services/shampoo.png',
-  },
-  {
-    id: 'foam',
-    icon: Waves,
-    name: 'Foam Wash',
-    tagline: 'Deep Clean',
-    description: 'Rich foam treatment that penetrates deep to lift embedded dirt. Interior vacuum & dashboard polish included.',
-    includes: ['High-pressure foam wash', 'Interior vacuum', 'Dashboard & console polish', 'Tyre dressing', 'Air freshener'],
-    duration: '45–60 min',
-    startingPrice: '₹499',
-    image: '/images/services/foam.png',
-  },
-  {
-    id: 'hydrophobic',
-    icon: Shield,
-    name: 'Hydrophobic Coating',
-    tagline: 'Premium Protection',
-    description: 'Advanced ceramic-grade coating that repels water, dust, and UV damage. Your car stays cleaner, longer.',
-    includes: ['Full foam wash', 'Clay bar treatment', 'Hydrophobic spray coating', 'Interior deep clean', 'Engine bay wipe', 'Freshener'],
-    duration: '90–120 min',
-    startingPrice: '₹999',
-    popular: true,
-    image: '/images/services/hydrophobic.png',
-  },
-];
 
 export default function Services() {
   const sectionRef = useRef(null);

@@ -1,41 +1,8 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { Home, Leaf, Users, ShieldCheck, Clock, ThumbsUp } from 'lucide-react';
+import { REASONS } from '../lib/data';
 import styles from './WhyChooseUs.module.css';
-
-const REASONS = [
-  {
-    icon: Home,
-    title: 'Doorstep Service',
-    description: 'We come to your home, office, or parking. No need to drive anywhere.',
-  },
-  {
-    icon: Users,
-    title: 'Trained Technicians',
-    description: 'Our 10+ trained staff handle every car with care and attention to detail.',
-  },
-  {
-    icon: Leaf,
-    title: 'Eco-Friendly Products',
-    description: 'We use biodegradable, pH-neutral cleaning agents safe for your car and the environment.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Satisfaction Guarantee',
-    description: 'Not happy with the wash? We\'ll redo it for free. No questions asked.',
-  },
-  {
-    icon: Clock,
-    title: 'Flexible Scheduling',
-    description: 'Choose your time slot — morning, afternoon, or evening. We work around your schedule.',
-  },
-  {
-    icon: ThumbsUp,
-    title: 'No Commitment',
-    description: 'Monthly plans can be cancelled anytime. Try us with a one-time wash first.',
-  },
-];
 
 export default function WhyChooseUs() {
   const sectionRef = useRef(null);
@@ -62,7 +29,7 @@ export default function WhyChooseUs() {
           Why Choose <span className="accent-text">Us</span>
         </h2>
         <p className="section-subtitle fade-in">
-          We're not just another car wash. Here's what makes us different.
+          We&apos;re not just another car wash. Here&apos;s what makes us different.
         </p>
 
         <div className={styles.grid}>
